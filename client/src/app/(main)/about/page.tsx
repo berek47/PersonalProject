@@ -23,7 +23,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about LearnHub's mission to make quality education accessible to everyone around the world.",
+    "Learn about BT Learn's mission to make quality education accessible to everyone around the world.",
 };
 
 const stats = [
@@ -95,7 +95,7 @@ export default function AboutPage() {
               <span className="text-primary">Worldwide</span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              LearnHub was founded with a simple mission: to make quality
+              BT Learn was founded with a simple mission: to make quality
               education accessible to everyone. We believe that learning should
               be engaging, affordable, and available to all who seek it.
             </p>
@@ -127,7 +127,7 @@ export default function AboutPage() {
               <h2 className="mb-6 text-3xl font-bold">Our Story</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  LearnHub started in 2020 when a group of educators and
+                  BT Learn started in 2020 when a group of educators and
                   technologists came together with a shared vision: to
                   democratize education and make world-class learning accessible
                   to everyone.
@@ -135,7 +135,7 @@ export default function AboutPage() {
                 <p>
                   What began as a small collection of courses has grown into a
                   thriving global learning community. Today, millions of
-                  learners from over 150 countries use LearnHub to develop new
+                  learners from over 150 countries use BT Learn to develop new
                   skills, advance their careers, and pursue their passions.
                 </p>
                 <p>
@@ -165,7 +165,7 @@ export default function AboutPage() {
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold">Our Values</h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              These core values guide everything we do at LearnHub
+              These core values guide everything we do at BT Learn
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -194,7 +194,7 @@ export default function AboutPage() {
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold">Meet Our Team</h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              The passionate people behind LearnHub
+              The passionate people behind BT Learn
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

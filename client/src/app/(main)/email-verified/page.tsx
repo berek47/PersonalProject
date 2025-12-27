@@ -173,7 +173,7 @@ export default function EmailVerifiedPage() {
               transition={{ delay: 0.6 }}
             >
               <p className="text-sm text-green-700 dark:text-green-400">
-                Congratulations! You now have full access to all LearnHub features. Start exploring courses and begin your learning journey.
+                Congratulations! You now have full access to all BT Learn features. Start exploring courses and begin your learning journey.
               </p>
             </motion.div>
 
@@ -216,7 +216,7 @@ export default function EmailVerifiedPage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
         >
-          Welcome to LearnHub! We&apos;re excited to have you.
+          Welcome to BT Learn! We&apos;re excited to have you.
         </motion.p>
       </motion.div>
     </div>

@@ -11,8 +11,8 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | LearnHub",
-    absolute: "LearnHub - Master New Skills with Expert-Led Courses",
+    template: "%s | BT Learn",
+    absolute: "BT Learn - Master New Skills with Expert-Led Courses",
   },
   description:
     "Discover thousands of expert-led courses. Learn programming, design, business, and more at your own pace. Start your learning journey today.",

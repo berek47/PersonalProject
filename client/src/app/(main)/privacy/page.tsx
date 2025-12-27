@@ -11,7 +11,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Learn how LearnHub collects, uses, and protects your personal information.",
+    "Learn how BT Learn collects, uses, and protects your personal information.",
 };
 
 const sections = [
@@ -47,7 +47,7 @@ We also automatically collect certain information when you use our platform, inc
 • With instructors for courses you enroll in (limited to necessary information)
 • With service providers who assist in our operations (payment processing, email delivery, analytics)
 • To comply with legal obligations
-• To protect the rights, privacy, safety, or property of LearnHub, our users, or the public
+• To protect the rights, privacy, safety, or property of BT Learn, our users, or the public
 • In connection with a merger, acquisition, or sale of assets (with notice to users)`,
   },
   {
@@ -73,7 +73,7 @@ However, no method of transmission over the Internet is 100% secure, and we cann
 • Opt-out: Unsubscribe from marketing communications at any time
 • Withdraw consent: Where processing is based on consent, you may withdraw it
 
-To exercise these rights, please contact us at privacy@learnhub.com.`,
+To exercise these rights, please contact us at privacy@berekettadesse.com.`,
   },
   {
     title: "Cookies and Tracking",
@@ -109,11 +109,11 @@ We encourage you to review this Privacy Policy periodically to stay informed abo
     title: "Contact Us",
     content: `If you have any questions about this Privacy Policy or our privacy practices, please contact us at:
 
-Email: privacy@learnhub.com
+Email: privacy@berekettadesse.com
 Address: 123 Learning Street, San Francisco, CA 94102
 Phone: +1 (555) 123-4567
 
-For data protection inquiries in the European Union, you may also contact our Data Protection Officer at dpo@learnhub.com.`,
+For data protection inquiries in the European Union, you may also contact our Data Protection Officer at dpo@berekettadesse.com.`,
   },
 ];
 
@@ -143,7 +143,7 @@ export default function PrivacyPage() {
           <CardHeader>
             <CardTitle>Your Privacy Matters</CardTitle>
             <CardDescription>
-              At LearnHub, we are committed to protecting your privacy and
+              At BT Learn, we are committed to protecting your privacy and
               ensuring the security of your personal information.
             </CardDescription>
           </CardHeader>
@@ -151,7 +151,7 @@ export default function PrivacyPage() {
             <p className="text-muted-foreground">
               This Privacy Policy explains how we collect, use, disclose, and
               safeguard your information when you use our learning platform. By
-              using LearnHub, you agree to the collection and use of information
+              using BT Learn, you agree to the collection and use of information
               in accordance with this policy.
             </p>
           </CardContent>
@@ -176,7 +176,7 @@ export default function PrivacyPage() {
         {/* Footer Note */}
         <div className="mt-12 rounded-lg border bg-muted/30 p-6 text-center">
           <p className="text-sm text-muted-foreground">
-            By using LearnHub, you acknowledge that you have read and understood
+            By using BT Learn, you acknowledge that you have read and understood
             this Privacy Policy. If you do not agree with our policies and
             practices, please do not use our services.
           </p>

@@ -432,7 +432,7 @@ export default async function Home() {
                 <div className="flex size-10 items-center justify-center rounded-lg bg-primary">
                   <GraduationCapIcon className="size-6 text-primary-foreground" />
                 </div>
-                <span className="text-xl font-bold">LearnHub</span>
+                <span className="text-xl font-bold">BT Learn</span>
               </div>
             </FadeIn>
             <FadeIn delay={0.2}>
@@ -453,7 +453,7 @@ export default async function Home() {
             </FadeIn>
             <FadeIn delay={0.3}>
               <p className="text-sm text-muted-foreground">
-                &copy; {new Date().getFullYear()} LearnHub. All rights reserved.
+                &copy; {new Date().getFullYear()} BT Learn. All rights reserved.
               </p>
             </FadeIn>
           </div>

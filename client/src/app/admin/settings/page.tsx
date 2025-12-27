@@ -21,9 +21,9 @@ export default function AdminSettingsPage() {
   const [saving, setSaving] = useState(false);
 
   // Site settings
-  const [siteName, setSiteName] = useState("LearnHub");
+  const [siteName, setSiteName] = useState("BT Learn");
   const [siteDescription, setSiteDescription] = useState("A modern learning platform for everyone");
-  const [supportEmail, setSupportEmail] = useState("support@learnhub.com");
+  const [supportEmail, setSupportEmail] = useState("support@berekettadesse.com");
 
   // Feature toggles
   const [allowRegistration, setAllowRegistration] = useState(true);

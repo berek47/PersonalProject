@@ -158,7 +158,7 @@ export default function CheckEmailPage() {
                   1
                 </div>
                 <p className="text-muted-foreground">
-                  Open your email inbox and find the email from LearnHub
+                  Open your email inbox and find the email from BT Learn
                 </p>
               </div>
               <div className="mt-3 flex gap-3">

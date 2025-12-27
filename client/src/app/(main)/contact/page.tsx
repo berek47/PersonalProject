@@ -27,7 +27,7 @@ const contactInfo = [
   {
     icon: MailIcon,
     title: "Email",
-    value: "support@learnhub.com",
+    value: "support@berekettadesse.com",
     description: "We'll respond within 24 hours",
   },
   {
@@ -69,7 +69,7 @@ const faqs = [
   {
     question: "How can I become an instructor?",
     answer:
-      "We're always looking for expert instructors! Visit our 'Teach on LearnHub' page to apply and learn about our instructor program.",
+      "We're always looking for expert instructors! Visit our 'Teach on BT Learn' page to apply and learn about our instructor program.",
   },
 ];
 
@@ -251,7 +251,7 @@ export default function ContactPage() {
             <div className="flex aspect-[21/9] items-center justify-center bg-muted">
               <div className="text-center">
                 <BuildingIcon className="mx-auto mb-4 size-12 text-muted-foreground" />
-                <h3 className="text-lg font-semibold">LearnHub Headquarters</h3>
+                <h3 className="text-lg font-semibold">BT Learn Headquarters</h3>
                 <p className="text-muted-foreground">
                   123 Learning Street, San Francisco, CA 94102
                 </p>

@@ -2,7 +2,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const FROM_EMAIL = process.env.FROM_EMAIL || "LearnHub <noreply@berekettadesse.com>";
+const FROM_EMAIL = process.env.FROM_EMAIL || "BT Learn <noreply@berekettadesse.com>";
 
 interface SendEmailValues {
   to: string;
@@ -39,7 +39,7 @@ export function getVerificationEmailTemplate(verifyUrl: string, userName?: strin
           <!-- Header -->
           <tr>
             <td style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 32px 40px; text-align: center;">
-              <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">LearnHub</h1>
+              <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">BT Learn</h1>
             </td>
           </tr>
           <!-- Content -->
@@ -47,7 +47,7 @@ export function getVerificationEmailTemplate(verifyUrl: string, userName?: strin
             <td style="padding: 40px;">
               <h2 style="margin: 0 0 16px; color: #18181b; font-size: 24px; font-weight: 600;">Verify Your Email Address</h2>
               <p style="margin: 0 0 24px; color: #52525b; font-size: 16px; line-height: 24px;">
-                ${userName ? `Hi ${userName},<br><br>` : ""}Thanks for signing up for LearnHub! Please verify your email address to get started with your learning journey.
+                ${userName ? `Hi ${userName},<br><br>` : ""}Thanks for signing up for BT Learn! Please verify your email address to get started with your learning journey.
               </p>
               <table role="presentation" style="width: 100%;">
                 <tr>
@@ -57,7 +57,7 @@ export function getVerificationEmailTemplate(verifyUrl: string, userName?: strin
                 </tr>
               </table>
               <p style="margin: 24px 0 0; color: #71717a; font-size: 14px; line-height: 22px;">
-                If you didn't create an account with LearnHub, you can safely ignore this email.
+                If you didn't create an account with BT Learn, you can safely ignore this email.
               </p>
               <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e4e7;">
               <p style="margin: 0; color: #a1a1aa; font-size: 12px; line-height: 20px;">
@@ -70,7 +70,7 @@ export function getVerificationEmailTemplate(verifyUrl: string, userName?: strin
           <tr>
             <td style="background-color: #fafafa; padding: 24px 40px; text-align: center;">
               <p style="margin: 0; color: #a1a1aa; font-size: 12px;">
-                © ${new Date().getFullYear()} LearnHub. All rights reserved.
+                © ${new Date().getFullYear()} BT Learn. All rights reserved.
               </p>
             </td>
           </tr>
@@ -100,7 +100,7 @@ export function getPasswordResetEmailTemplate(resetUrl: string, userName?: strin
           <!-- Header -->
           <tr>
             <td style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 32px 40px; text-align: center;">
-              <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">LearnHub</h1>
+              <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">BT Learn</h1>
             </td>
           </tr>
           <!-- Content -->
@@ -131,7 +131,7 @@ export function getPasswordResetEmailTemplate(resetUrl: string, userName?: strin
           <tr>
             <td style="background-color: #fafafa; padding: 24px 40px; text-align: center;">
               <p style="margin: 0; color: #a1a1aa; font-size: 12px;">
-                © ${new Date().getFullYear()} LearnHub. All rights reserved.
+                © ${new Date().getFullYear()} BT Learn. All rights reserved.
               </p>
             </td>
           </tr>

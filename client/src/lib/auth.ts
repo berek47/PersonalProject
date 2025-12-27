@@ -25,7 +25,7 @@ export const auth = betterAuth({
     async sendResetPassword({ user, url }) {
       await sendEmail({
         to: user.email,
-        subject: "Reset Your Password - LearnHub",
+        subject: "Reset Your Password - BT Learn",
         text: `Click the link to reset your password: ${url}`,
         html: getPasswordResetEmailTemplate(url, user.name),
       });
@@ -37,7 +37,7 @@ export const auth = betterAuth({
     async sendVerificationEmail({ user, url }) {
       await sendEmail({
         to: user.email,
-        subject: "Verify Your Email - LearnHub",
+        subject: "Verify Your Email - BT Learn",
         text: `Click the link to verify your email: ${url}`,
         html: getVerificationEmailTemplate(url, user.name),
       });

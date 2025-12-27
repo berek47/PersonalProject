@@ -20,7 +20,7 @@ export async function Navbar() {
           <div className="flex size-9 items-center justify-center rounded-lg bg-primary">
             <GraduationCapIcon className="size-5 text-primary-foreground" />
           </div>
-          <span className="hidden sm:inline">LearnHub</span>
+          <span className="hidden sm:inline">BT Learn</span>
         </Link>
 
         {/* Navigation */}
