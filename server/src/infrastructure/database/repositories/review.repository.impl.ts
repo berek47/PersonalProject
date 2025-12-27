@@ -23,9 +23,8 @@ export class ReviewRepositoryImpl implements IReviewRepository {
         user: {
           select: {
             id: true,
-            firstName: true,
-            lastName: true,
-            avatar: true,
+            name: true,
+            image: true,
           },
         },
       },
@@ -55,9 +54,8 @@ export class ReviewRepositoryImpl implements IReviewRepository {
           user: {
             select: {
               id: true,
-              firstName: true,
-              lastName: true,
-              avatar: true,
+              name: true,
+              image: true,
             },
           },
         },

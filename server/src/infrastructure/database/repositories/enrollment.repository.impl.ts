@@ -21,10 +21,9 @@ export class EnrollmentRepositoryImpl implements IEnrollmentRepository {
         user: {
           select: {
             id: true,
-            firstName: true,
-            lastName: true,
+            name: true,
             email: true,
-            avatar: true,
+            image: true,
           },
         },
         course: {
@@ -62,10 +61,9 @@ export class EnrollmentRepositoryImpl implements IEnrollmentRepository {
           user: {
             select: {
               id: true,
-              firstName: true,
-              lastName: true,
+              name: true,
               email: true,
-              avatar: true,
+              image: true,
             },
           },
           course: {
@@ -97,10 +95,9 @@ export class EnrollmentRepositoryImpl implements IEnrollmentRepository {
           user: {
             select: {
               id: true,
-              firstName: true,
-              lastName: true,
+              name: true,
               email: true,
-              avatar: true,
+              image: true,
             },
           },
           course: {

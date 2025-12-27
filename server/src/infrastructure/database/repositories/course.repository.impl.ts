@@ -28,9 +28,8 @@ export class CourseRepositoryImpl implements ICourseRepository {
         instructor: {
           select: {
             id: true,
-            firstName: true,
-            lastName: true,
-            avatar: true,
+            name: true,
+            image: true,
           },
         },
         category: {
@@ -58,9 +57,8 @@ export class CourseRepositoryImpl implements ICourseRepository {
         instructor: {
           select: {
             id: true,
-            firstName: true,
-            lastName: true,
-            avatar: true,
+            name: true,
+            image: true,
           },
         },
         category: {
@@ -121,9 +119,8 @@ export class CourseRepositoryImpl implements ICourseRepository {
           instructor: {
             select: {
               id: true,
-              firstName: true,
-              lastName: true,
-              avatar: true,
+              name: true,
+              image: true,
             },
           },
           category: {
@@ -174,9 +171,8 @@ export class CourseRepositoryImpl implements ICourseRepository {
           instructor: {
             select: {
               id: true,
-              firstName: true,
-              lastName: true,
-              avatar: true,
+              name: true,
+              image: true,
             },
           },
           category: {

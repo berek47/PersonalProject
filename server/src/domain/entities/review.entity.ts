@@ -1,7 +1,7 @@
 export interface Review {
   id: string;
   rating: number;
-  comment?: string | null;
+  comment: string;
   userId: string;
   courseId: string;
   createdAt: Date;
@@ -10,7 +10,7 @@ export interface Review {
 
 export interface CreateReviewDTO {
   rating: number;
-  comment?: string;
+  comment: string;
   userId: string;
   courseId: string;
 }
@@ -23,8 +23,7 @@ export interface UpdateReviewDTO {
 export interface ReviewWithDetails extends Review {
   user: {
     id: string;
-    firstName: string;
-    lastName: string;
-    avatar?: string | null;
+    name: string;
+    image?: string | null;
   };
 }

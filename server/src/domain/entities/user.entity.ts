@@ -1,36 +1,49 @@
-// Use Prisma's UserRole directly to avoid type mismatches
-import { UserRole } from '@prisma/client';
-export { UserRole };
+// User role is now a string in the database
+export type UserRole = 'ADMIN' | 'INSTRUCTOR' | 'STUDENT';
 
 export interface User {
   id: string;
+  name: string;
   email: string;
-  password: string;
-  firstName: string;
-  lastName: string;
-  role: UserRole;
-  avatar?: string | null;
-  bio?: string | null;
+  emailVerified: boolean;
+  image?: string | null;
+  role: string;
+  banned: boolean;
+  bannedAt?: Date | null;
+  bannedReason?: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
 
 export interface CreateUserDTO {
   email: string;
-  password: string;
-  firstName: string;
-  lastName: string;
+  password: string; // Password will be stored in Account table
+  name: string;
   role?: UserRole;
-  avatar?: string;
-  bio?: string;
+  image?: string;
 }
 
 export interface UpdateUserDTO {
   email?: string;
-  firstName?: string;
-  lastName?: string;
-  avatar?: string;
-  bio?: string;
+  name?: string;
+  image?: string;
 }
 
-export interface UserWithoutPassword extends Omit<User, 'password'> {}
+export interface UserWithoutPassword extends User {}
+
+// Account model for credential authentication
+export interface Account {
+  id: string;
+  accountId: string;
+  providerId: string;
+  userId: string;
+  accessToken?: string | null;
+  refreshToken?: string | null;
+  idToken?: string | null;
+  accessTokenExpiresAt?: Date | null;
+  refreshTokenExpiresAt?: Date | null;
+  scope?: string | null;
+  password?: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+}

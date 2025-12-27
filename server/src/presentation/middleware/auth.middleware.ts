@@ -1,13 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import { JwtService } from '../../infrastructure/services/jwt.service';
 import { UnauthorizedError, ForbiddenError } from '../../shared/errors/app-error';
-import { UserRole } from '../../domain/entities/user.entity';
 
 export interface AuthRequest extends Request {
   user?: {
     userId: string;
     email: string;
-    role: UserRole;
+    role: string;
   };
 }
 
@@ -32,7 +31,7 @@ export const authenticate = (req: AuthRequest, res: Response, next: NextFunction
   }
 };
 
-export const authorize = (...allowedRoles: UserRole[]) => {
+export const authorize = (...allowedRoles: string[]) => {
   return (req: AuthRequest, res: Response, next: NextFunction): void => {
     if (!req.user) {
       throw new UnauthorizedError('Authentication required');

@@ -2,7 +2,7 @@ export interface Enrollment {
   id: string;
   userId: string;
   courseId: string;
-  progress: number;
+  progressPercent: number;
   completedAt?: Date | null;
   enrolledAt: Date;
 }
@@ -13,17 +13,16 @@ export interface CreateEnrollmentDTO {
 }
 
 export interface UpdateEnrollmentDTO {
-  progress?: number;
+  progressPercent?: number;
   completedAt?: Date;
 }
 
 export interface EnrollmentWithDetails extends Enrollment {
   user: {
     id: string;
-    firstName: string;
-    lastName: string;
+    name: string;
     email: string;
-    avatar?: string | null;
+    image?: string | null;
   };
   course: {
     id: string;

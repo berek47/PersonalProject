@@ -6,10 +6,8 @@ import { parsePaginationParams, createPaginatedResponse } from '../../shared/uti
 
 const updateUserSchema = z.object({
   email: z.string().email().optional(),
-  firstName: z.string().min(1).optional(),
-  lastName: z.string().min(1).optional(),
-  avatar: z.string().url().optional(),
-  bio: z.string().optional(),
+  name: z.string().min(1).optional(),
+  image: z.string().url().optional(),
 });
 
 export class UsersController {
@@ -47,11 +45,9 @@ export class UsersController {
           user: {
             id: user.id,
             email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
+            name: user.name,
             role: user.role,
-            avatar: user.avatar,
-            bio: user.bio,
+            image: user.image,
             createdAt: user.createdAt,
             updatedAt: user.updatedAt,
           },
@@ -81,11 +77,9 @@ export class UsersController {
           user: {
             id: updatedUser.id,
             email: updatedUser.email,
-            firstName: updatedUser.firstName,
-            lastName: updatedUser.lastName,
+            name: updatedUser.name,
             role: updatedUser.role,
-            avatar: updatedUser.avatar,
-            bio: updatedUser.bio,
+            image: updatedUser.image,
           },
         },
       });

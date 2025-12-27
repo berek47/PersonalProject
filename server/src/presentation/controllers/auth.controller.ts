@@ -5,13 +5,11 @@ import { IUserRepository } from '../../domain/repositories/user.repository';
 import { JwtService } from '../../infrastructure/services/jwt.service';
 import { BadRequestError, UnauthorizedError, ConflictError } from '../../shared/errors/app-error';
 import { AuthRequest } from '../middleware/auth.middleware';
-import { UserRole } from '../../domain/entities/user.entity';
 
 const registerSchema = z.object({
   email: z.string().email('Invalid email address'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
-  firstName: z.string().min(1, 'First name is required'),
-  lastName: z.string().min(1, 'Last name is required'),
+  name: z.string().min(1, 'Name is required'),
   role: z.enum(['STUDENT', 'INSTRUCTOR']).optional(),
 });
 
@@ -21,10 +19,8 @@ const loginSchema = z.object({
 });
 
 const updateProfileSchema = z.object({
-  firstName: z.string().min(1).optional(),
-  lastName: z.string().min(1).optional(),
-  avatar: z.string().url().optional(),
-  bio: z.string().optional(),
+  name: z.string().min(1).optional(),
+  image: z.string().url().optional(),
 });
 
 const changePasswordSchema = z.object({
@@ -52,7 +48,7 @@ export class AuthController {
       const user = await this.userRepository.create({
         ...validatedData,
         password: hashedPassword,
-        role: validatedData.role as UserRole || UserRole.STUDENT,
+        role: validatedData.role || 'STUDENT',
       });
 
       // Generate JWT
@@ -77,8 +73,7 @@ export class AuthController {
           user: {
             id: user.id,
             email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
+            name: user.name,
             role: user.role,
           },
         },
@@ -92,16 +87,23 @@ export class AuthController {
     try {
       const validatedData = loginSchema.parse(req.body);
 
-      // Find user
-      const user = await this.userRepository.findByEmail(validatedData.email);
-      if (!user) {
+      // Find user with password (from Account table)
+      const result = await this.userRepository.findByEmailWithPassword(validatedData.email);
+      if (!result || !result.password) {
         throw new UnauthorizedError('Invalid credentials');
       }
 
+      const { user, password } = result;
+
       // Check password
-      const isPasswordValid = await bcrypt.compare(validatedData.password, user.password);
+      const isPasswordValid = await bcrypt.compare(validatedData.password, password);
       if (!isPasswordValid) {
         throw new UnauthorizedError('Invalid credentials');
+      }
+
+      // Check if user is banned
+      if (user.banned) {
+        throw new UnauthorizedError('Your account has been banned');
       }
 
       // Generate JWT
@@ -126,11 +128,9 @@ export class AuthController {
           user: {
             id: user.id,
             email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
+            name: user.name,
             role: user.role,
-            avatar: user.avatar,
-            bio: user.bio,
+            image: user.image,
           },
         },
       });
@@ -168,11 +168,9 @@ export class AuthController {
           user: {
             id: user.id,
             email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
+            name: user.name,
             role: user.role,
-            avatar: user.avatar,
-            bio: user.bio,
+            image: user.image,
             createdAt: user.createdAt,
             updatedAt: user.updatedAt,
           },
@@ -200,11 +198,9 @@ export class AuthController {
           user: {
             id: updatedUser.id,
             email: updatedUser.email,
-            firstName: updatedUser.firstName,
-            lastName: updatedUser.lastName,
+            name: updatedUser.name,
             role: updatedUser.role,
-            avatar: updatedUser.avatar,
-            bio: updatedUser.bio,
+            image: updatedUser.image,
           },
         },
       });
@@ -221,13 +217,14 @@ export class AuthController {
 
       const validatedData = changePasswordSchema.parse(req.body);
 
-      const user = await this.userRepository.findById(req.user.userId);
-      if (!user) {
+      // Get current password from Account
+      const result = await this.userRepository.findByEmailWithPassword(req.user.email);
+      if (!result || !result.password) {
         throw new UnauthorizedError('User not found');
       }
 
       // Verify current password
-      const isPasswordValid = await bcrypt.compare(validatedData.currentPassword, user.password);
+      const isPasswordValid = await bcrypt.compare(validatedData.currentPassword, result.password);
       if (!isPasswordValid) {
         throw new BadRequestError('Current password is incorrect');
       }
@@ -236,7 +233,7 @@ export class AuthController {
       const hashedPassword = await bcrypt.hash(validatedData.newPassword, 10);
 
       // Update password
-      await this.userRepository.updatePassword(user.id, hashedPassword);
+      await this.userRepository.updatePassword(result.user.id, hashedPassword);
 
       res.json({
         success: true,

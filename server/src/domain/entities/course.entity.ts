@@ -1,6 +1,6 @@
-// Use Prisma's CourseStatus directly to avoid type mismatches
-import { CourseStatus } from '@prisma/client';
-export { CourseStatus };
+// Course status is now a string in the database
+export type CourseStatus = 'DRAFT' | 'PUBLISHED' | 'ARCHIVED';
+export type Difficulty = 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED';
 
 export interface Course {
   id: string;
@@ -8,10 +8,11 @@ export interface Course {
   slug: string;
   description: string;
   thumbnail?: string | null;
-  price: number;
-  status: CourseStatus;
+  price: number | any; // Decimal in DB
+  difficulty: string;
+  status: string;
   instructorId: string;
-  categoryId: string;
+  categoryId?: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -22,6 +23,7 @@ export interface CreateCourseDTO {
   description: string;
   thumbnail?: string;
   price?: number;
+  difficulty?: Difficulty;
   status?: CourseStatus;
   instructorId: string;
   categoryId: string;
@@ -33,6 +35,7 @@ export interface UpdateCourseDTO {
   description?: string;
   thumbnail?: string;
   price?: number;
+  difficulty?: Difficulty;
   status?: CourseStatus;
   categoryId?: string;
 }
@@ -40,15 +43,14 @@ export interface UpdateCourseDTO {
 export interface CourseWithDetails extends Course {
   instructor: {
     id: string;
-    firstName: string;
-    lastName: string;
-    avatar?: string | null;
+    name: string;
+    image?: string | null;
   };
-  category: {
+  category?: {
     id: string;
     name: string;
     slug: string;
-  };
+  } | null;
   _count?: {
     lessons: number;
     enrollments: number;
