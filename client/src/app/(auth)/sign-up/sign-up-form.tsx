@@ -26,7 +26,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 import { z } from "zod";
 
 const signUpSchema = z
@@ -73,8 +72,8 @@ export function SignUpForm() {
     if (error) {
       setError(error.message || "Something went wrong");
     } else {
-      toast.success("Signed up successfully");
-      router.push("/dashboard");
+      // Redirect to check-email page with email in query params
+      router.push(`/check-email?email=${encodeURIComponent(email)}`);
     }
   }
 

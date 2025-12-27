@@ -1,7 +1,7 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { APIError, createAuthMiddleware } from "better-auth/api";
-import { sendEmail } from "./email";
+import { sendEmail, getVerificationEmailTemplate, getPasswordResetEmailTemplate } from "./email";
 import prisma from "./prisma";
 import { passwordSchema } from "./validation";
 
@@ -21,13 +21,13 @@ export const auth = betterAuth({
   },
   emailAndPassword: {
     enabled: true,
-    requireEmailVerification: true, // Only if you want to block login completely
+    requireEmailVerification: true,
     async sendResetPassword({ user, url }) {
-    
       await sendEmail({
         to: user.email,
-        subject: "Reset your password",
+        subject: "Reset Your Password - LearnHub",
         text: `Click the link to reset your password: ${url}`,
+        html: getPasswordResetEmailTemplate(url, user.name),
       });
     },
   },
@@ -37,8 +37,9 @@ export const auth = betterAuth({
     async sendVerificationEmail({ user, url }) {
       await sendEmail({
         to: user.email,
-        subject: "Verify your email",
+        subject: "Verify Your Email - LearnHub",
         text: `Click the link to verify your email: ${url}`,
+        html: getVerificationEmailTemplate(url, user.name),
       });
     },
   },
